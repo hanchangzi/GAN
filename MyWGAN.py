@@ -69,22 +69,6 @@ netg=nn.Sequential(
 
 )
 
-
-#损失函数
-criterion=nn.BCELoss()
-##损失
-def D_loss(real,fake):
-    size=real.shape[0]
-    true_label = Variable(torch.ones(size)).float().cuda()
-    false_label = Variable(torch.zeros(size)).float().cuda()
-    return criterion(real,true_label)+criterion(fake,false_label)
-
-def G_loss(fake):
-    size = fake.shape[0]
-    true_label = Variable(torch.ones(size)).float().cuda()
-    return criterion(fake, true_label)
-
-
 #优化器,用默认参数
 optimizerG = torch.optim.RMSprop(netg.parameters(),
                                   lr=2e-4)
