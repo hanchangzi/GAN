@@ -12,7 +12,7 @@ from pylab import plt
 transforms=transforms.Compose([
     transforms.Scale(64),#将图片大小放大为64
     transforms.ToTensor(),#将numpy转为tensor
-    transforms.Normalize([0]*3,[1]*3)
+    transforms.Normalize([0.5]*3,[0.5]*3)
 ])
 dataset=CIFAR10(root='cifar10/', transform=transforms,download=True)
 
